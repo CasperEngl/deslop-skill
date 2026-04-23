@@ -1,10 +1,11 @@
 # Deslop
 
-`deslop` helps an agent clean up AI-slop, junk code, and overengineered internals with a targeted refactor pass.
+`deslop` helps an agent clean up AI-slop, junk code, overengineered internals, and unnecessary code indirection with a targeted refactor pass.
 
 It is designed to:
 
 - identify low-signal abstractions, dead wrappers, defensive noise, and duplicated logic
+- reduce unnecessary code indirection by collapsing pass-through layers and needless delegation
 - prefer deletion, inlining, renaming, flattening, and merging over adding new structure
 - preserve behavior by default while allowing strong local or internal simplification
 - protect public APIs unless the user explicitly widens scope

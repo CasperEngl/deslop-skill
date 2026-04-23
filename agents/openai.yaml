@@ -1,4 +1,4 @@
 interface:
   display_name: "Deslop"
   short_description: "Clean up AI-slop and junk code"
-  default_prompt: "Use $deslop to remove AI-slop and junk code, simplify internals, and verify behavior with the smallest useful checks."
+  default_prompt: "Use $deslop to remove AI-slop and junk code, simplify internals, reduce unnecessary code indirection, and verify behavior with the smallest useful checks."

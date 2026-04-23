@@ -18,7 +18,7 @@ Look closely at code with patterns like:
 
 ## Good Simplification Moves
 
-Prefer moves like:
+Make cleanup changes like these:
 
 - inline one-use wrappers
 - delete dead code and stale compatibility scaffolding

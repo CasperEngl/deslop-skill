@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Clean up slop, junk code, and overengineered internals with a targeted refactor pass. Use when code feels bloated, generic, defensive, duplicated, or obviously AI-generated; when the user wants to simplify AI-generated code; remove fake abstractions; collapse wrappers, helpers, and managers that add no value; make code smaller, sharper, and easier to read; or refactor internals without changing behavior. Prefer focused cleanup over broad redesign.
+description: Clean up slop, junk code, and overengineered internals with a targeted refactor pass. Use when code feels bloated, generic, defensive, duplicated, or obviously AI-generated; when the user wants to simplify AI-generated code; remove fake abstractions; collapse wrappers, helpers, and managers that add no value; reduce unnecessary code indirection; make code smaller, sharper, and easier to read; or refactor internals without changing behavior. Prefer focused cleanup over broad redesign.
 ---
 
 # Deslop
@@ -27,7 +27,7 @@ Read [references/slop-patterns.md](references/slop-patterns.md) when you need a 
    - Identify which behavior must stay stable and which interfaces are internal, local, or public.
 
 2. Identify slop candidates.
-   - Call out low-signal abstractions, dead code, duplicated logic, defensive noise, generic naming, one-off helpers, and future-proofing with no current need.
+   - Call out low-signal abstractions, dead code, duplicated logic, defensive noise, generic naming, one-off helpers, unnecessary code indirection, and future-proofing with no current need.
 
 3. Classify each candidate.
    - Use `fix now`, `defer`, or `keep`.
@@ -72,9 +72,10 @@ Choose `keep` for:
 
 ## Cleanup Heuristics
 
-Prefer moves like:
+Make cleanup changes like these:
 
 - inline one-use wrappers
+- inline pass-through helpers that only hide the real work
 - merge near-duplicate helpers
 - delete dead branches or stale TODO scaffolding
 - replace option bags with direct parameters when the call graph is local
